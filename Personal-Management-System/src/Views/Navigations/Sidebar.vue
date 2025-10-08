@@ -1,5 +1,6 @@
 <script setup>
 import {Icon} from '@iconify/vue'
+
 </script>
 
 <template>
@@ -8,14 +9,17 @@ import {Icon} from '@iconify/vue'
             <h1 class = 'text-2xl mb-3 text-cyan-600 font-semibold '>Expense Manager</h1>
             <p class = 'font-light'> Manage your finances</p>
         </div>
-        <div class = 'mt-10 ml-8'>
-            <ul class = 'flex flex-col text-lg gap-y-6 font-medium'>
-                    <li class = 'flex hover:text-cyan-600 cursor-pointer'>
+        <div class = 'mt-10 ml-3'>
+            <ul class = 'flex flex-col text-lg gap-y-3 font-medium'>
+                   <router-link :to ="{name: 'Dashboard' }" class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70' >
                         <Icon icon="solar:widget-4-linear" height = "25"/>
                         <span>Dashboard</span>
-                    </li>
-                <router-link to =''><li class = 'hover:text-cyan-600 cursor-pointer'>Transactions</li></router-link>
-                <li class = 'hover:text-cyan-600 cursor-pointer'>Categories</li>
+                         </router-link>
+                <router-link to ='' class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70'>
+                    <span>Add Expense</span>
+                </router-link>
+                <router-link class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70'>
+                    <span>Categories</span></router-link>
                 <li class = 'hover:text-cyan-600 cursor-pointer'>Reports</li>
                 <li class = 'hover:text-cyan-600 cursor-pointer'>Settings</li>
             </ul>
