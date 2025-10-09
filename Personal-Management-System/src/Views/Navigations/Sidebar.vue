@@ -15,11 +15,11 @@ import {Icon} from '@iconify/vue'
                         <Icon icon="solar:widget-4-linear" height = "25"/>
                         <span>Dashboard</span>
                          </router-link>
-                <router-link to ='' class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70'>
+                <router-link :to ="{name: 'Add'}" class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70'>
                     <span>Add Expense</span>
                 </router-link>
-                <router-link class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70'>
-                    <span>Categories</span></router-link>
+                <router-link :to = "{name: 'Expenses'}"class = 'flex hover:text-black cursor-pointer focus:bg-cyan-600 focus:text-white rounded-lg p-2 focus:w-70'>
+                    <span>Expenses</span></router-link>
                 <li class = 'hover:text-cyan-600 cursor-pointer'>Reports</li>
                 <li class = 'hover:text-cyan-600 cursor-pointer'>Settings</li>
             </ul>

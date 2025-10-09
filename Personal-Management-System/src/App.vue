@@ -8,8 +8,8 @@ import Sidebar from './Views/Navigations/Sidebar.vue';
   <Nav/>
   <div class = 'flex'>
 
-  <Sidebar />
-  <div class = 'ml-5 mt-10 w-full'>
+  <Sidebar/>
+  <div class = 'ml-5n mt-10 w-full'>
   <router-view />
   </div>
   </div>
