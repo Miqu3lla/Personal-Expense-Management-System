@@ -1,11 +1,15 @@
 <script setup>
 import {Icon} from '@iconify/vue'
 import {ref,reactive} from 'vue'
-let id = 0;
-const Expenses = reactive([
-    {id: id++, name: 'Groceries', amount: 50, date: '2023-10-01', category: 'Food'},
+import { useExpenseStore } from '@/stores/expenses'
+const expenseStore = useExpenseStore()
 
-])
+
+
+function deleteExpense(id) {
+    expenseStore.removeExpense(id)
+}
+
 </script>
 
 <template>
@@ -26,13 +30,13 @@ const Expenses = reactive([
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="expense in Expenses" :key="expense.id" class = 'text-center hover:bg-gray-100'>
+                    <tr v-for="expense in expenseStore.expenses" :key="expense.id" class = 'text-center hover:bg-gray-100'>
                         <td class = ' p-2 pr-45'>{{ expense.date }}</td>
                         <td class = ' p-2 pr-45'>{{ expense.name }}</td>
                         <td class = ' p-2 pr-13'>{{ expense.category }}</td>
                         <td class = ' p-2 pr-34'>${{ expense.amount }}</td>
-                        <td class = ' p-2 pr-34'>
-                            <button class = 'text-red-600 hover:text-red-800 font-bold'>Delete</button>
+                        <td class = ' p-2 pr-10 flex gap-x-3 justify-center'>
+                            <button @click = "deleteExpense(expense.id)"class = 'text-red-600 hover:text-red-800 font-bold'>Delete</button>
                         </td>
                     </tr>
                 </tbody>
