@@ -3,28 +3,35 @@ import {Icon} from '@iconify/vue'
 import {ref, reactive} from 'vue'
 import { useExpenseStore } from '@/stores/expenses'
 
+// TODO: Add comment - What does this line do?
+//it adds the store to this component
 const expenseStore = useExpenseStore()
 
-
+// TODO: Add comments - What do these refs hold?
+// in use for the form with the v-model 
 const expenseName = ref('')
 const expenseAmount = ref(0)
 const expenseDate = ref('')
 const expenseCategory = ref('')
 
-
+// TODO: Add comment - What does this function do? When is it called?
+// uses the addExpense method from the store to add a new expense object with the form data
 function submitExpense() {
+  // TODO: Add comment - What happens here?
+  //stores the value from the expenseName and etc refs into the store
   expenseStore.addExpense({
     name: expenseName.value,
     amount: expenseAmount.value,
     date: expenseDate.value,
     category: expenseCategory.value,
-    
   })
-    // Reset form
-    expenseName.value = ''
-    expenseAmount.value = 0
-    expenseDate.value = ''
-    expenseCategory.value = ''
+  
+  // TODO: Add comment - Why reset the form?
+  //resets the form after submission
+  expenseName.value = ''
+  expenseAmount.value = 0
+  expenseDate.value = ''
+  expenseCategory.value = ''
 }
 </script>
 

@@ -28,9 +28,15 @@ export const useExpenseStore = defineStore('expenses',{
         },
         // Action to remove an expense by ID
         // @param id - the unique ID of the expense to remove
-        removeExpense(id) {
+        removeExpense() {
             // Filter out the expense with matching ID
-            this.expenses = this.expenses.filter(expense => expense.id !== id);
+            this.expenses = this.expenses.filter(expense => expense.id !== expense.id);
+        }
+    },
+
+    getters: {
+        totalExpense: (state) => {
+            return state.expenses.reduce((total, expense) => total + expense.amount, 0);
         }
     }
 });

@@ -1,6 +1,12 @@
 <script setup>
 import {Icon} from '@iconify/vue'
+import { useExpenseStore } from '@/stores/expenses'
 
+const expenseStore = useExpenseStore()
+
+function totalValues() {
+    return expenseStore.totalExpense
+}
 </script>
 <template>
   <div>
@@ -14,7 +20,7 @@ import {Icon} from '@iconify/vue'
                 <p class = 'text-sm'> Personal Finance Manager</p>
             </div>
             <div class = "flex justify-end ml-auto mr-110 mt-3 bg-cyan-700 text-white p-2 rounded-lg h-9 font-bold text-sm">
-                <h1> Total: {{  }}</h1>
+                <h1> Total: {{ totalValues()}}</h1>
             </div>
         </nav>
     </div>
