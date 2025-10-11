@@ -13,11 +13,8 @@ const expenseName = ref('')
 const expenseAmount = ref(0)
 const expenseDate = ref('')
 const expenseCategory = ref('')
-
-// TODO: Add comment - What does this function do? When is it called?
 // uses the addExpense method from the store to add a new expense object with the form data
 function submitExpense() {
-  // TODO: Add comment - What happens here?
   //stores the value from the expenseName and etc refs into the store
   expenseStore.addExpense({
     name: expenseName.value,
@@ -57,7 +54,7 @@ function submitExpense() {
                     <p class = 'font-semibold text-md'>Amount</p>
                     <p class = 'font-bold text-md'>Date</p>
                     </div>
-                    <input v-model = "expenseAmount" required type = "number" placeholder = "Amount" class = ' border-0 border focus:border-red-300 rounded-lg p-2 w-100'/>
+                    <input v-model = "expenseAmount" type = "number" placeholder = "Amount" required class = ' border-0 border focus:border-red-300 rounded-lg p-2 w-100'/>
                     <input v-model = "expenseDate" required type = "date" placeholder = "Date" class = ' border-0 border focus:border-red-300 rounded-lg p-2 w-100'/>
                     </div>
                     <select v-model = "expenseCategory" required class = ' border-0 border focus:border-red-300 rounded-lg p-2 w-100 mt-5 '>

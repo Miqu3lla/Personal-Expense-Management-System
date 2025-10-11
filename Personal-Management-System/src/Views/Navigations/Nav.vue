@@ -20,7 +20,7 @@ function totalValues() {
                 <p class = 'text-sm'> Personal Finance Manager</p>
             </div>
             <div class = "flex justify-end ml-auto mr-110 mt-3 bg-cyan-700 text-white p-2 rounded-lg h-9 font-bold text-sm">
-                <h1> Total: {{ totalValues()}}</h1>
+                <h1> Total: ₱{{ totalValues()}}</h1>
             </div>
         </nav>
     </div>

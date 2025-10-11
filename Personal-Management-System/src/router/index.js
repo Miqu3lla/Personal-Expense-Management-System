@@ -1,4 +1,4 @@
-import AddExpense from '@/Components/AddExpense.vue'
+import AddExpense from '@/Views/Home/AddExpense.vue'
 import Dashboard from '@/Views/Home/Dashboard.vue'
 import Expenses from '@/Views/Home/Expenses.vue'
 
@@ -10,6 +10,10 @@ const router = createRouter({
   routes: [
   
     {path: '/',
+      redirect: '/Dashboard'
+    },
+    {
+      path: '/Dashboard',
       name: 'Dashboard',
       component: Dashboard
     },
