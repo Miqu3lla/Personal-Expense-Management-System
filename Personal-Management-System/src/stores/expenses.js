@@ -6,7 +6,7 @@ export const useExpenseStore = defineStore('expenses',{
     state: () => {
             // Array that holds all expense objects
             // Each expense has: id, name, amount, date, category
-            const savedExpenses = localStorage.getItem('expenses')  // Use the same key as where you save expenses
+            const savedExpenses = localStorage.getItem('myExpenses')  // Use the same key as where you save expenses
             const expenseObject = savedExpenses ? JSON.parse(savedExpenses) : []// Parse the JSON string from localStorage
 
             if (expenseObject.length > 0) {
@@ -36,8 +36,8 @@ export const useExpenseStore = defineStore('expenses',{
                 date: expense.date,
                 category: expense.category
             });
-            // Save updated expenses array to localStorage
-            localStorage.setItem('expenses', JSON.stringify(this.expenses));
+            // Save updated expenses array to localStoragezm
+            localStorage.setItem('myExpenses', JSON.stringify(this.expenses));
         },
         // Action to remove an expense by ID
         // @param id - the unique ID of the expense to remove
@@ -45,14 +45,16 @@ export const useExpenseStore = defineStore('expenses',{
             // Filter out the expense with matching ID
             this.expenses = this.expenses.filter(expense => expense.id !== id);
             // Save updated expenses array to localStorage
-            localStorage.setItem('expenses', JSON.stringify(this.expenses));
+            localStorage.setItem('myExpenses', JSON.stringify(this.expenses));
         }
     },
 
     getters: {
         // Getter to calculate the total amount of all expenses
         totalExpense: (state) => {
-            return state.expenses.reduce((total, expense) => total + expense.amount, 0);
+            state.expenses.reduce((total, expense) => total + expense.amount, 0);
+            localStorage.setItem("myExpenses", JSON.stringify(state.expenses));
+        
         },
     }
 });

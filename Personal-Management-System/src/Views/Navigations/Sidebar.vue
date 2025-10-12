@@ -12,17 +12,16 @@ import {Icon} from '@iconify/vue'
         <div class = 'mt-10 ml-3'>
             <ul class = 'flex flex-col text-lg gap-y-3 font-medium'>
                    <router-link :to ="{name: 'Dashboard' }" active-class= "text-white rounded-lg p-2 w-70 bg-cyan-600" class = 'flex p-2 cursor-pointer  ' >
-                        <Icon icon="solar:widget-4-linear" height = "25"/>
+                        <Icon icon="solar:widget-4-linear" height = "25" class = "mr-2"/>
                         <span>Dashboard</span>
                          </router-link>
                 <router-link :to ="{name: 'Add'}" active-class= "text-white rounded-lg p-2 w-70 bg-cyan-600 " class = 'flex cursor-pointer p-2'>
-                    <Icon icon = "solar:add-square-outline" height= "25" />
+                    <Icon icon = "solar:add-square-outline" height= "25" class = "mr-2"/>
                     <span>Add Expense</span>
                 </router-link>
-                <router-link :to = "{name: 'Expenses'}"active-class= "text-white rounded-lg p-2 w-70 bg-cyan-600" class = 'flex hover:text-black cursor-pointer'>
+                <router-link :to = "{name: 'Expenses'}"active-class= "text-white rounded-lg p-2 w-70 bg-cyan-600" class = 'flex cursor-pointer'>
+                    <Icon icon = "solar:wallet-money-broken" height = "25" class = "mr-2"/>
                     <span>Expenses</span></router-link>
-                <li class = 'hover:text-cyan-600 cursor-pointer'>Reports</li>
-                <li class = 'hover:text-cyan-600 cursor-pointer'>Settings</li>
             </ul>
         </div>
     </div>
