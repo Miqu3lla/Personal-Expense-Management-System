@@ -4,7 +4,7 @@ import { useExpenseStore } from '@/stores/expenses';
 const expenseStore = useExpenseStore();
 const props = defineProps({
    name: String,
-   tyoe: String
+   type: String
 });
 
 </script>
