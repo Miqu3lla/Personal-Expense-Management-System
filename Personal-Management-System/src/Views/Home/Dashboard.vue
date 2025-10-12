@@ -11,6 +11,13 @@ const expenseStore = useExpenseStore();
         <p class = 'text-cyan-600'>Welcome to your Personal Dashboard!</p>
         
     </div>
+    <div class = ' grid grid-cols-4 mx-10 mt-10'>
+     <Card
+      name= "Total Expenses Today"/>
+      <Card
+      name= "Total Expenses This Month"/>
+      
+    </div>
         
 </div>
 </template>

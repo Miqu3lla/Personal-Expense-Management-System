@@ -52,9 +52,15 @@ export const useExpenseStore = defineStore('expenses',{
     getters: {
         // Getter to calculate the total amount of all expenses
         totalExpense: (state) => {
-            state.expenses.reduce((total, expense) => total + expense.amount, 0);
-            localStorage.setItem("myExpenses", JSON.stringify(state.expenses));
-        
+             return state.expenses.reduce((total, expense) => total + expense.amount, 0);
+
         },
-    }
+        MonthlyExpense: (state) => {
+            const currentMonth = new Date().getMonth();
+            return state.expenses.filter(expense => {
+                const newDate = new Date(expense.date)
+                return newDate.getMonth() === currentMonth
+            }).reduce((total,expense) => total + expense.amount,0)
+        }
+  }
 });

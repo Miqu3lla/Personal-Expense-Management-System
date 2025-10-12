@@ -1,19 +1,21 @@
 <script setup>
+import { useExpenseStore } from '@/stores/expenses';
 
-import { defineProps } from 'vue';
+const expenseStore = useExpenseStore();
+
 
 const props = defineProps({
-    amount: Number,
+   name: String,
+});
 
-})
 </script>
 
 <template>
     <div>
         <div> 
-            <div class = 'bg-cyan-100 p-5 rounded-lg w-40 h-20 text-center'>
-                <h1 class = 'text-cyan-700 font-bold text-lg'>Total Expenses</h1>
-                <p class = 'text-cyan-900 font-bold text-2xl mt-2'>${{ props.amount }}</p>
+            <div class = 'bg-gray-100 p-5 rounded-lg w-70 h-30  text-center'>
+                <h1 class = ' font-bold text-lg'>{{ props.name }}</h1>
+                <p class = 'text-cyan-900 font-bold text-2xl mt-2'>${{ expenseStore.totalExpense}}</p>
             </div>
         </div>
     </div>
