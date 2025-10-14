@@ -55,15 +55,26 @@ export const useExpenseStore = defineStore('expenses',{
              return state.expenses.reduce((total, expense) => total + expense.amount, 0);
 
         },
-        MonthlyExpense: (state) => {
+        monthlyExpense: (state) => {
             //gets the current month
             const currentMonth = new Date().getMonth() + 1;
             //filters the expenses to get only the expenses of the current month
             return state.expenses.filter(expense => {
                 const newDate = new Date(expense.date)
+                //returns true if the expense is in the current month
                 return newDate.getMonth() + 1 === currentMonth
                 //adds the total expense of the current month
             }).reduce((total,expense) => total + expense.amount,0)
+        },
+        dailyExpense: (state) => {
+            //gets the current date
+            const currentDate = new Date().getDate();
+            //filters the expenses to get only the expenses of the current date
+            return state.expenses.filter(expense => {
+                const newDate = new Date(expense.date)
+                //returns true if the expense is in the current date
+                return newDate.getDate() === currentDate
+            }).reduce((total,expense) => total + expense.amount,0)
         }
-  }
+    }
 });

@@ -3,8 +3,8 @@ import Card from '@/Components/Card.vue';
 import { useExpenseStore } from '@/stores/expenses';
 const expenseStore = useExpenseStore();
 
-const total = expenseStore.totalExpense;
-const monthly = expenseStore.MonthlyExpense;
+const daily = expenseStore.dailyExpense;
+const monthly = expenseStore.monthlyExpense;
 </script>
 
 <template>
@@ -17,7 +17,7 @@ const monthly = expenseStore.MonthlyExpense;
     <div class = ' grid grid-cols-4 mx-10 mt-10'>
      <Card
       name= "Total Expenses Today"
-      :type = "total"/>
+      :type = "daily"/>
       <Card
       name= "Total Expenses This Month"
       :type = "monthly"/>
