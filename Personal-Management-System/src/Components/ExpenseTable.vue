@@ -9,23 +9,31 @@ function deleteExpense(id) {
 }
 const expenses = expenseStore.expenses
 const searchQuery = ref('')
+const categoryQuery = ref('')
 const searchExpenses = computed(() => {
-    if (!searchQuery.value) {
+    if (!searchQuery.value && !categoryQuery.value || categoryQuery.value === 'All') {
         return expenses
     }
     return expenses.filter(expense =>
-        expense.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-        expense.category.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-        expense.date.toLowerCase().includes(searchQuery.value.toLowerCase()
-    ));
-})
+        expense.name.toLowerCase().includes(searchQuery.value.toLowerCase() 
+    )).filter(expense => expense.category.includes(categoryQuery.value)
+)});
 
 </script>
 
 <template>
     <div>
-        <div>
+        <div class = "flex ">
             <input type="text" v-model="searchQuery" placeholder="Search..." class="border-b border-gray-300 rounded-md px-4 py-2 w-250 ml-10 mt-5 focus:outline focus:ring-2 focus:ring-blue-500"/>
+            <select v-model="categoryQuery" class = "border-b border-gray-300 rounded-md px-4 py-2 w-50 ml-5 mt-5 focus:outline focus:ring-2 focus:ring-blue-500">
+                <option value="" disabled selected>Filter by Category</option>
+                <option value="Food">Food</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="All">All</option>
+            </select>
         </div>
             <table class = 'w-11/12 mt-10 '>
                 <thead>
