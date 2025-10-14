@@ -5,6 +5,7 @@ const expenseStore = useExpenseStore();
 
 const daily = expenseStore.dailyExpense;
 const monthly = expenseStore.monthlyExpense;
+const total = expenseStore.totalExpense;
 </script>
 
 <template>
@@ -15,6 +16,9 @@ const monthly = expenseStore.monthlyExpense;
         
     </div>
     <div class = ' grid grid-cols-4 mx-10 mt-10'>
+        <Card
+      name= "Total Expenses"
+      :type = "total"/>
      <Card
       name= "Total Expenses Today"
       :type = "daily"/>

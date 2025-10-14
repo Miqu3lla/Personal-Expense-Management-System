@@ -1,4 +1,5 @@
 <script setup>
+import {ref, computed} from 'vue'
 import { useExpenseStore } from '@/stores/expenses';
 //call the store
 const expenseStore = useExpenseStore()
@@ -6,11 +7,26 @@ const expenseStore = useExpenseStore()
 function deleteExpense(id) {
     expenseStore.removeExpense(id)
 }
+const expenses = expenseStore.expenses
+const searchQuery = ref('')
+const searchExpenses = computed(() => {
+    if (!searchQuery.value) {
+        return expenses
+    }
+    return expenses.filter(expense =>
+        expense.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        expense.category.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        expense.date.toLowerCase().includes(searchQuery.value.toLowerCase()
+    ));
+})
 
 </script>
 
 <template>
     <div>
+        <div>
+            <input type="text" v-model="searchQuery" placeholder="Search..." class="border-b border-gray-300 rounded-md px-4 py-2 w-250 ml-10 mt-5 focus:outline focus:ring-2 focus:ring-blue-500"/>
+        </div>
             <table class = 'w-11/12 mt-10 '>
                 <thead>
                     <tr class = 'text-left'>
@@ -22,7 +38,7 @@ function deleteExpense(id) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="expense in expenseStore.expenses" :key="expense.id" class = 'text-center hover:bg-gray-100'>
+                    <tr v-for="expense in searchExpenses" :key="expense.id" class = 'text-center hover:bg-gray-100'>
                         <td class = ' p-2 pl-25'>{{ expense.date }}</td>
                         <td class = ' p-2 pl-14'>{{ expense.name }}</td>
                         <td class="p-2 pl-23">

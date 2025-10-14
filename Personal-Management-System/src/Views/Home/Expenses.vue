@@ -1,5 +1,9 @@
 <script setup>
+
 import ExpenseTable from '@/Components/ExpenseTable.vue'
+
+
+
 </script>
 
 <template>
