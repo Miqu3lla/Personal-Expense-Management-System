@@ -10,13 +10,16 @@ function deleteExpense(id) {
 const expenses = expenseStore.expenses
 const searchQuery = ref('')
 const categoryQuery = ref('')
+//computed property that filters the expenses based on the search query and category
 const searchExpenses = computed(() => {
+    //shows entire expenses if no search query or category is selected or if category is All
     if (!searchQuery.value && !categoryQuery.value || categoryQuery.value === 'All') {
         return expenses
     }
+    //filters the expense name to match the value inside the search query so that it shows the matched result
     return expenses.filter(expense =>
         expense.name.toLowerCase().includes(searchQuery.value.toLowerCase() 
-    )).filter(expense => expense.category.includes(categoryQuery.value)
+    )).filter(expense => expense.category.includes(categoryQuery.value) //filters the category to match the value inside the category query so that it shows the matched result
 )});
 
 </script>

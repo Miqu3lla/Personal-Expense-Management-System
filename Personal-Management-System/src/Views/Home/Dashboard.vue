@@ -1,5 +1,6 @@
 <script setup>
 import Card from '@/Components/Card.vue';
+import Chart from '@/Components/chart.vue';
 import { useExpenseStore } from '@/stores/expenses';
 const expenseStore = useExpenseStore();
 
@@ -26,6 +27,9 @@ const total = expenseStore.totalExpense;
       name= "Total Expenses This Month"
       :type = "monthly"/>
       
+    </div>
+    <div>
+        <Chart/>
     </div>
         
 </div>
