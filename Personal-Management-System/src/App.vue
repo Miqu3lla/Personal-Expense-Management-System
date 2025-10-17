@@ -10,11 +10,9 @@ import Sidebar from './Views/Navigations/Sidebar.vue';
 
   <Sidebar/>
   <div class = 'ml-5n mt-10 w-full'>
-  <router-view />
+  <router-view/>
   </div>
   </div>
   
    
 </template>
-
-<style scoped></style>

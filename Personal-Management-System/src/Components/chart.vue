@@ -1,19 +1,30 @@
 <script setup>
-import { Line } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement } from 'chart.js'
+import { Pie } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend,  ArcElement} from 'chart.js'
+import { useExpenseStore } from '@/stores/expenses';
 
-ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement)
+ChartJS.register(Title, Tooltip, Legend, ArcElement)
+const expenseStore = useExpenseStore();
+
+const expenseData = expenseStore.expenses;
+
+
 
 const chartData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: expenseData.map(expense => expense.category),
     datasets: [
         {
-            label: 'Expenses Over Time',
-            backgroundColor: '#3b82f6',
-            borderColor: '#3b82f6',
-            data: [400, 300, 500, 200, 600, 700, 400],
-            fill: false,
-            tension: 0.1
+            label: 'Expenses',
+            data: expenseData.map(expense => expense.amount),
+            backgroundColor: ['rgba(54, 162, 235, 0.5)',
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            ],
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 0.5,
+            
         }
     ]
 }
@@ -21,9 +32,17 @@ const chartData = {
 const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    scales: {
-        y: {
-            beginAtZero: true
+    animation: {
+        animateRotate: true,
+        duration: 3000
+    },
+    plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 14
+                }
+            }
         }
     }
 }
@@ -31,6 +50,6 @@ const chartOptions = {
 
 <template>
     <div class = 'w-11/12 ml-10 mt-10 mb-10'>
-        <Line :data="chartData" :options="chartOptions"/>
+        <Pie :data="chartData" :options="chartOptions"/>
     </div>
 </template>

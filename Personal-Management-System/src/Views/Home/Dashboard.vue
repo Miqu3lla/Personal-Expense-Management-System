@@ -3,7 +3,6 @@ import Card from '@/Components/Card.vue';
 import Chart from '@/Components/chart.vue';
 import { useExpenseStore } from '@/stores/expenses';
 const expenseStore = useExpenseStore();
-
 const daily = expenseStore.dailyExpense;
 const monthly = expenseStore.monthlyExpense;
 const total = expenseStore.totalExpense;

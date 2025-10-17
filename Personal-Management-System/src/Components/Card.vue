@@ -1,10 +1,7 @@
 <script setup>
-import { useExpenseStore } from '@/stores/expenses';
-
-const expenseStore = useExpenseStore();
 const props = defineProps({
    name: String,
-   type: String
+   type: Number
 });
 
 </script>
