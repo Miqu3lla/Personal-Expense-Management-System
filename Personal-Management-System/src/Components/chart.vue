@@ -16,11 +16,12 @@ const chartData = {
         {
             label: 'Expenses',
             data: expenseData.map(expense => expense.amount),
-            backgroundColor: ['rgba(54, 162, 235, 0.5)',
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)',
-            'rgba(153, 102, 255, 0.5)',
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.8)',
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)',
+                'rgba(153, 102, 255, 0.8)',
             ],
             borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 0.5,

@@ -10,10 +10,9 @@ const total = expenseStore.totalExpense;
 
 <template>
     <div>
-    <div class = 'ml-10 mb-10m'>
-        <H1 class = 'text-3xl font-semibold'>Expense Dashboard!</H1>
-        <p class = 'text-cyan-600'>Welcome to your Personal Dashboard!</p>
-        
+    <div class = 'ml-10 mb-10'>
+        <H1 class = 'text-4xl font-semibold mb-3'>Expense Dashboard</H1>
+        <p class = 'text-cyan-600 font-serif text-xl'>Welcome to your Personal Dashboard!</p>
     </div>
     <div class = ' grid grid-cols-4 mx-10 mt-10'>
         <Card
@@ -27,7 +26,7 @@ const total = expenseStore.totalExpense;
       :type = "monthly"/>
       
     </div>
-    <div>
+    <div class = ''>
         <Chart/>
     </div>
         
