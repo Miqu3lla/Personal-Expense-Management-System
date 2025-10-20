@@ -38,7 +38,7 @@ const searchExpenses = computed(() => {
                 <option value="All">All</option>
             </select>
         </div>
-            <table class = 'w-11/12 mt-10 '>
+            <table class = 'w-full mt-10 '>
                 <thead>
                     <tr class = 'text-left'>
                         <th class = 'p-2 pl-35'>Date</th>
@@ -51,8 +51,8 @@ const searchExpenses = computed(() => {
                 <tbody>
                     <tr v-for="expense in searchExpenses" :key="expense.id" class = 'text-center hover:bg-gray-100'>
                         <td class = ' p-2 pl-25'>{{ expense.date }}</td>
-                        <td class = ' p-2 pl-14'>{{ expense.name }}</td>
-                        <td class="p-2 pl-23">
+                        <td class = ' p-2 pl-25'>{{ expense.name }}</td>
+                        <td class="p-2 pl-24">
                             <span 
                                 :class="
                                     expense.category === 'Food' ? 'bg-red-100 text-red-700 border border-red-200' : 
@@ -65,8 +65,8 @@ const searchExpenses = computed(() => {
                                 {{ expense.category }}
                             </span>
                         </td>
-                        <td class = ' p-2 pl-23'>₱{{ expense.amount }}</td>
-                        <td class = ' p-2 pl-35 '>
+                        <td class = ' p-2 pl-25'>₱{{ expense.amount }}</td>
+                        <td class = ' p-2 pl-23 '>
                             <button @click = "deleteExpense(expense.id)"class = 'text-red-600 hover:text-red-800 font-bold'>Delete</button>
                         </td>
                     </tr>

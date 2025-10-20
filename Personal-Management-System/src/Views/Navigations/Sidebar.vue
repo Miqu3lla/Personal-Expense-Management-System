@@ -4,7 +4,7 @@ import {Icon} from '@iconify/vue'
 </script>
 
 <template>
-    <div class = 'border-r-2 border-gray-200 h-screen w-90 '>
+    <div class = 'border-r-2 border-gray-200 h-screen w-90'>
         <div class = 'pt-10 ml-8 '>
             <h1 class = 'text-2xl mb-3 text-cyan-600 font-semibold '>Expense Manager</h1>
             <p class = 'font-light'> Manage your finances</p>

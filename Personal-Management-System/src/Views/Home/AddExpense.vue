@@ -38,7 +38,7 @@ function submitExpense() {
             <h1 class = 'text-3xl font-semibold'>Add New Expense</h1>
             <p class = 'text-cyan-600 mt-2'>Here you can add your expenses.</p>
         </div>
-        <div class = 'mt-20 ml-100 '>
+        <div class = 'mt-20 ml-50 '>
          <div class = 'flex gap-x-3'>
          <Icon icon = "solar:clipboard-add-bold" height = "25" color="#124170"/>
             <h1>Record New Expense</h1>

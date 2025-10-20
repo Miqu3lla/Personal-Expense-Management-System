@@ -11,7 +11,7 @@ function totalValues() {
 <template>
   <div>
     <div>
-        <nav class = 'flex bg-cyan-600 text-white '>
+        <nav class = 'flex bg-cyan-600 text-white  '>
             <div class = "mr-3 ml-3 mt-4">
                 <Icon icon = solar:wallet-money-broken width="50" height="30"/>
             </div>
@@ -19,7 +19,7 @@ function totalValues() {
                 <h1 class = 'text-lg font-bold'>Espense Tracker</h1>
                 <p class = 'text-sm'> Personal Finance Manager</p>
             </div>
-            <div class = "flex justify-end ml-auto  mt-3 bg-cyan-700 text-white p-2 rounded-lg h-9 font-bold text-sm md:mr-10 lg:mr-110" >
+            <div class = "flex justify-end ml-auto mr-10 mt-3 bg-cyan-700 text-white p-2 rounded-lg h-9 font-bold text-sm md:mr-10 lg:mr-110 " >
                 <h1> Total: ₱{{ totalValues()}}</h1>
             </div>
         </nav>
