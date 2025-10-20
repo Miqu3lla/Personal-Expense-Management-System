@@ -14,7 +14,7 @@ const total = expenseStore.totalExpense;
         <H1 class = 'text-4xl font-semibold mb-3'>Expense Dashboard</H1>
         <p class = 'text-cyan-600 font-serif text-xl'>Welcome to your Personal Dashboard!</p>
     </div>
-    <div class = ' grid grid-cols-4 mx-10 mt-10'>
+    <div class = 'grid grid-cols-4 mx-10 mt-10'>
         <Card
       name= "Total Expenses"
       :type = "total"/>
@@ -26,7 +26,7 @@ const total = expenseStore.totalExpense;
       :type = "monthly"/>
       
     </div>
-    <div class = ''>
+    <div class = 'mt-30'>
         <Chart/>
     </div>
         

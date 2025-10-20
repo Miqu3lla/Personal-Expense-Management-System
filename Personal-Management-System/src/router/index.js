@@ -2,6 +2,7 @@ import AddExpense from '@/Views/Home/AddExpense.vue'
 import Dashboard from '@/Views/Home/Dashboard.vue'
 import Expenses from '@/Views/Home/Expenses.vue'
 
+
 import { createRouter, createWebHistory } from 'vue-router'
 
 
@@ -25,6 +26,10 @@ const router = createRouter({
       path: '/Expenses',
       name: 'Expenses',
       component: Expenses
+    },
+    {
+      path: '/:pathMatch(.*)*,',
+      component: () => import ('@/Views/Error/404.vue')
     }
   ],
 })
