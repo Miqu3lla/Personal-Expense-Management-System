@@ -56,14 +56,17 @@ async function sendMessage() {
     
     // Create prompt with context
     const prompt = `
-      You are a helpful financial assistant for a personal expense tracker.
+      You are a professional expense analyst and manager who knows how to handle money and knows 
+      alot about how money works.
       
       ${expenseContext}
       
       User Question: ${userMessage}
       
-      Provide helpful, concise financial advice based on their expense data.
-      Use peso (₱) currency format. Be friendly and encouraging.
+      Your Job is to Provide helpful, concise, accurate financial advice while also maintaining
+      proffesionalism based on their expense data.
+      Use peso (₱) currency format. Be friendly and encouraging and always guide them towards whats best for them 
+      into making decisions based on their expense while at the same time keeping your responses summarized.
     `
     
     // Get AI response

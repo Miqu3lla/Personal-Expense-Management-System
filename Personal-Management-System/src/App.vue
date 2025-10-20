@@ -1,5 +1,5 @@
 <script setup>
-import Chatbot from './Views/ai-chat-bot/chatbot-.vue';
+import Chatbot from './Views/ai-chat-bot/chatbot.vue';
 import Nav from './Views/Navigations/Nav.vue';
 import Sidebar from './Views/Navigations/Sidebar.vue';
 

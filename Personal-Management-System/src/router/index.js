@@ -28,7 +28,7 @@ const router = createRouter({
       component: Expenses
     },
     {
-      path: '/:pathMatch(.*)*,',
+      path: '/:pathMatch(.*)*',
       component: () => import ('@/Views/Error/404.vue')
     }
   ],
