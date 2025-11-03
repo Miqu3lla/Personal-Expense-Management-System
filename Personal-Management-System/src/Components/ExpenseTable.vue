@@ -7,11 +7,13 @@ const expenseStore = useExpenseStore()
 function deleteExpense(id) {
     expenseStore.removeExpense(id)
 }
-const expenses = expenseStore.expenses
+
 const searchQuery = ref('')
 const categoryQuery = ref('')
 //computed property that filters the expenses based on the search query and category
 const searchExpenses = computed(() => {
+    //get all expenses from the store
+    const expenses = expenseStore.expenses
     //shows entire expenses if no search query or category is selected or if category is All
     if (!searchQuery.value && !categoryQuery.value || categoryQuery.value === 'All') {
         return expenses

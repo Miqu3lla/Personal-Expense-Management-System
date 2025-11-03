@@ -44,7 +44,7 @@ const total = expenseStore.totalExpense;
     
     <div class="flex flex-col sm:flex-col md:flex-col  lg:flex-row justify-around xl:flex-row justify-around mt-10">
       <Chart/>
-      <Bar class = "sm: w-50 md: w-50"/>
+      <Bar/>
     </div>
   </div>
 </template>

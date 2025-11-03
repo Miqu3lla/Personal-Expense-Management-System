@@ -45,7 +45,7 @@ const chartOptions = {
 </script>
 
 <template>
-    <div class = 'w-150 ml-10 mt-10 mb-10' style="height: 500px;">
+    <div class = ' h-100 w-150 ml-10 mt-10 mb-3'>
         <Bar :data="chartData" :options="chartOptions"/>
     </div>
 </template>
