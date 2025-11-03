@@ -132,7 +132,7 @@ function askQuickQuestion(question) {
     <!-- Chat Window -->
     <div
       v-if="isChatOpen"
-      class="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-lg shadow-2xl flex flex-col z-40"
+      class="fixed bottom-20 sm:bottom-24 right-2 sm:right-6 w-[calc(100vw-1rem)] sm:w-96 h-[500px] sm:h-[600px] max-w-md bg-white rounded-lg shadow-2xl flex flex-col z-40"
     >
       <!-- Chat Header -->
       <div class="bg-cyan-600 text-white p-4 rounded-t-lg flex items-center gap-3">

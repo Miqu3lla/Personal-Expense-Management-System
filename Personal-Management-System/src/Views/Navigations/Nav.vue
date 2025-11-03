@@ -10,19 +10,22 @@ function totalValues() {
 </script>
 <template>
   <div>
-    <div>
-        <nav class = 'flex bg-cyan-600 text-white  '>
-            <div class = "mr-3 ml-3 mt-4">
-                <Icon icon = solar:wallet-money-broken width="50" height="30"/>
-            </div>
-            <div class = 'text-white mt-2 mb-2'>
-                <h1 class = 'text-lg font-bold'>Espense Tracker</h1>
-                <p class = 'text-sm'> Personal Finance Manager</p>
-            </div>
-            <div class = "flex justify-end ml-auto mr-10 mt-3 bg-cyan-700 text-white p-2 rounded-lg h-9 font-bold text-sm md:mr-10 lg:mr-110 " >
-                <h1> Total: ₱{{ totalValues()}}</h1>
-            </div>
-        </nav>
-    </div>
+    <nav class="flex items-center bg-cyan-600 text-white px-3 sm:px-6 py-3 sm:py-4">
+      <!-- Logo Icon -->
+      <div class="flex-shrink-0 mr-3">
+        <Icon icon="solar:wallet-money-broken" width="40" height="30" class="sm:w-12 sm:h-8"/>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="flex-1 min-w-0">
+        <h1 class="text-base sm:text-lg font-bold truncate">Expense Tracker</h1>
+        <p class="text-xs sm:text-sm text-cyan-100 hidden sm:block">Personal Finance Manager</p>
+      </div>
+
+      <!-- Total Display -->
+      <div class="flex-shrink-0 bg-cyan-700 text-white px-3 py-2 rounded-lg font-bold text-xs sm:text-sm">
+        <span class="hidden sm:inline">Total: </span>₱{{ totalValues()}}
+      </div>
+    </nav>
   </div>
 </template>
