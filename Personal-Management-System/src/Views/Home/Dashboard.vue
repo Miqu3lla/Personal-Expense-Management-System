@@ -1,6 +1,7 @@
 <script setup>
 import Card from '@/Components/Card.vue';
 import Chart from '@/Components/chart.vue';
+import {Icon} from '@iconify/vue';
 import { useExpenseStore } from '@/stores/expenses';
 const expenseStore = useExpenseStore();
 const daily = expenseStore.dailyExpense;
@@ -31,6 +32,13 @@ const total = expenseStore.totalExpense;
         icon="solar:calendar-linear"
         :type="monthly"
       />
+    </div>
+    <div>
+      <div class = 'flex'>
+        <Icon icon="solar:chart-2-linear" height="25" class=" ml-10 mt-10 text-cyan-600"/>
+        <h1 class="text-2xl  mt-10 ml-2 ">Spending Analytics</h1>
+      </div>
+      <p class="text-cyan-600 ml-10 mt-2">Visual representation of your expenses by category.</p>
     </div>
     
     <div class="mt-10">

@@ -19,7 +19,7 @@ import {Icon} from '@iconify/vue'
                     <Icon icon = "solar:add-square-outline" height= "25" class = "mr-2"/>
                     <span>Add Expense</span>
                 </router-link>
-                <router-link :to = "{name: 'Expenses'}"active-class= "text-white rounded-lg p-2 w-70 bg-cyan-600" class = 'flex cursor-pointer'>
+                <router-link :to = "{name: 'Expenses'}"active-class= "text-white rounded-lg p-2 w-70 bg-cyan-600" class = 'flex cursor-pointer p-2'>
                     <Icon icon = "solar:wallet-money-broken" height = "25" class = "mr-2"/>
                     <span>Expenses</span></router-link>
             </ul>

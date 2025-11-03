@@ -1,6 +1,6 @@
 <script setup>
 import {Icon} from '@iconify/vue'
-import {ref, reactive} from 'vue'
+import {ref,} from 'vue'
 import { useExpenseStore } from '@/stores/expenses'
 
 // TODO: Add comment - What does this line do?
