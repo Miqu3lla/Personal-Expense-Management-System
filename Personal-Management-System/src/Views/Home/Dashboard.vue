@@ -1,6 +1,7 @@
 <script setup>
 import Card from '@/Components/Card.vue';
 import Chart from '@/Components/chart.vue';
+import Bar from '@/Components/bar.vue';
 import {Icon} from '@iconify/vue';
 import { useExpenseStore } from '@/stores/expenses';
 const expenseStore = useExpenseStore();
@@ -41,8 +42,9 @@ const total = expenseStore.totalExpense;
       <p class="text-cyan-600 ml-10 mt-2">Visual representation of your expenses by category.</p>
     </div>
     
-    <div class="mt-10">
+    <div class="flex flex-col sm:flex-col md:flex-col  lg:flex-row justify-around xl:flex-row justify-around mt-10">
       <Chart/>
+      <Bar class = "sm: w-50 md: w-50"/>
     </div>
   </div>
 </template>

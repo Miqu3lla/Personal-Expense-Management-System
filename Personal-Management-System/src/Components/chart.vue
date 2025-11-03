@@ -50,7 +50,7 @@ const chartOptions = {
 </script>
 
 <template>
-    <div class = 'w-11/12 ml-10 mt-10 mb-10'>
+    <div class = 'w-67 ml-10 mt-10 mb-10'>
         <Pie :data="chartData" :options="chartOptions"/>
     </div>
 </template>
