@@ -1,6 +1,6 @@
 <script setup>
 import Card from '@/Components/Card.vue';
-import Chart from '@/Components/chart.vue';
+import Chart from '@/Components/pie.vue';
 import Bar from '@/Components/bar.vue';
 import {Icon} from '@iconify/vue';
 import { useExpenseStore } from '@/stores/expenses';
