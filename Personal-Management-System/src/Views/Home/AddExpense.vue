@@ -3,11 +3,11 @@ import {Icon} from '@iconify/vue'
 import {ref,} from 'vue'
 import { useExpenseStore } from '@/stores/expenses'
 
-// TODO: Add comment - What does this line do?
+
 //it adds the store to this component
 const expenseStore = useExpenseStore()
 
-// TODO: Add comments - What do these refs hold?
+
 // in use for the form with the v-model 
 const expenseName = ref('')
 const expenseAmount = ref(0)
@@ -22,8 +22,6 @@ function submitExpense() {
     date: expenseDate.value,
     category: expenseCategory.value,
   })
-  
-  // TODO: Add comment - Why reset the form?
   //resets the form after submission
   expenseName.value = ''
   expenseAmount.value = 0

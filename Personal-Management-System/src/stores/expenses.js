@@ -36,7 +36,7 @@ export const useExpenseStore = defineStore('expenses',{
                 date: expense.date,
                 category: expense.category
             });
-            // Save updated expenses array to localStoragezm
+            // Save updated expenses array to localStorage
             localStorage.setItem('myExpenses', JSON.stringify(this.expenses));
         },
         // Action to remove an expense by ID
