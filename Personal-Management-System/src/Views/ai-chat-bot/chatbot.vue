@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { Icon } from '@iconify/vue'
 import { useExpenseStore } from '@/stores/expenses'
+import { useTokenBucket } from '@/utils/useTokenBucket'
 
 const expenseStore = useExpenseStore()
 
@@ -22,9 +23,13 @@ const userInput = ref('')
 const isLoading = ref(false)
 const isChatOpen = ref(false)
 
+// Rate limiter: 10 requests/min via token bucket
+const { BUCKET_CAPACITY, bucketTokens, refillCountdown, isRateLimited, consumeToken } = useTokenBucket()
+
 // Send message to Gemini
 async function sendMessage() {
   if (!userInput.value.trim()) return
+  if (!consumeToken()) return  // rate limit guard
   
   // Add user message
   const userMessage = userInput.value
@@ -194,18 +199,35 @@ function askQuickQuestion(question) {
 
       <!-- Input Area -->
       <div class="border-t p-4">
+        <!-- Rate limit banner -->
+        <div
+          v-if="isRateLimited"
+          class="mb-2 flex items-center gap-2 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-xs text-amber-700"
+        >
+          <Icon icon="mdi:clock-alert-outline" height="16" />
+          <span>Slow down! Next token in <strong>{{ refillCountdown }}s</strong> &mdash; {{ bucketTokens }}/{{ BUCKET_CAPACITY }} tokens left.</span>
+        </div>
+        <!-- Token indicator (visible when not rate-limited) -->
+        <div
+          v-else-if="bucketTokens < BUCKET_CAPACITY"
+          class="mb-2 flex items-center gap-1 text-xs text-gray-400"
+        >
+          <Icon icon="mdi:lightning-bolt" height="12" />
+          <span>{{ bucketTokens }}/{{ BUCKET_CAPACITY }} requests remaining</span>
+        </div>
+
         <form @submit.prevent="sendMessage" class="flex gap-2">
           <input
             v-model="userInput"
             type="text"
             placeholder="Ask me anything..."
             class="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            :disabled="isLoading"
+            :disabled="isLoading || isRateLimited"
           />
           <button
             type="submit"
             class="bg-cyan-600 text-white p-2 rounded-lg hover:bg-cyan-700 transition disabled:opacity-50"
-            :disabled="isLoading || !userInput.trim()"
+            :disabled="isLoading || !userInput.trim() || isRateLimited"
           >
             <Icon icon="mdi:send" height="24" />
           </button>
